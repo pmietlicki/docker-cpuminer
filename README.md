@@ -21,19 +21,23 @@ Usage example
 
 You can use these variables to mine the crypto you want (see a list [here](https://github.com/tpruvot/cpuminer-multi#algorithms))
 
+**Very important, change the defaut values below with your own variables inside your docker-compose or under your orchestrator (rancher for example)**
+## Pool address
+POOL=stratum+tcp://btc-eu.f2pool.com:3333
+## Pool user
+USER=bc1q8x59fwt7v9w3haa8dc5jtaurs3azjq2ut5nekp
+## Algo used to mine (sha256d is for BTC)
+ALGO=sha256d
+## Pool user password
+PASS=Rancher
+## Number of threads
+NB_THREADS=3
+## Miscellaneous (no need to change it)
 DUMBINIT_VERSION=1.2.4
 
 DUMBINIT_URL=https://github.com/Yelp/dumb-init/releases/download/v${DUMBINIT_VERSION}/dumb-init_${DUMBINIT_VERSION}_x86_64
 
-POOL=stratum+tcp://btc-eu.f2pool.com:3333
-
-USER=bc1q8x59fwt7v9w3haa8dc5jtaurs3azjq2ut5nekp
-
-ALGO=sha256d
-
-PASS=Rancher
-
-NB_THREADS=3
+------------------------------------------------------------------------------------------------------------------------------------------
 
 The `:alpine` tag is smaller but some people reported issue with it.
 You can test both `:debian` ([Debian](https://hub.docker.com/_/debian)-based)
