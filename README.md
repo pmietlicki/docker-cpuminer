@@ -22,11 +22,17 @@ Usage example
 You can use these variables to mine the crypto you want (see a list [here](https://github.com/tpruvot/cpuminer-multi#algorithms))
 
 DUMBINIT_VERSION=1.2.4
+
 DUMBINIT_URL=https://github.com/Yelp/dumb-init/releases/download/v${DUMBINIT_VERSION}/dumb-init_${DUMBINIT_VERSION}_x86_64
+
 POOL=stratum+tcp://btc-eu.f2pool.com:3333
+
 USER=bc1q8x59fwt7v9w3haa8dc5jtaurs3azjq2ut5nekp
+
 ALGO=sha256d
+
 PASS=Rancher
+
 NB_THREADS=3
 
 The `:alpine` tag is smaller but some people reported issue with it.
