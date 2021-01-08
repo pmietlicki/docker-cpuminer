@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:jessie
 
 ENV POOL=stratum+tcp://btc-eu.f2pool.com:3333
 ENV USER=bc1q8x59fwt7v9w3haa8dc5jtaurs3azjq2ut5nekp
@@ -10,10 +10,10 @@ RUN set -x \
     # Runtime dependencies.
  && apt-get update \
  && apt-get install -y \
-        libcurl4 \
+        libcurl3 \
         libgmp10 \
         libjansson4 \
-        libssl1.1 \
+        libssl1.0.0 \
         openssl \
     # Build dependencies.
  && apt-get install -y \
