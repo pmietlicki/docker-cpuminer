@@ -10,10 +10,10 @@ RUN set -x \
     # Runtime dependencies.
  && apt-get update \
  && apt-get install -y \
-        libcurl3 \
+        libcurl4 \
         libgmp10 \
         libjansson4 \
-        libssl1.0.0 \
+        libssl1.1 \
         openssl \
     # Build dependencies.
  && apt-get install -y \
