@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian
 
 ENV POOL=stratum+tcp://btc-eu.f2pool.com:3333
 ENV USER=bc1q8x59fwt7v9w3haa8dc5jtaurs3azjq2ut5nekp
@@ -6,14 +6,18 @@ ENV ALGO=sha256d
 ENV PASS=Rancher
 ENV NB_THREADS=3
 
+ENV DUMBINIT_VERSION=1.2.4
+ENV DUMBINIT_URL=https://github.com/Yelp/dumb-init/releases/download/v${DUMBINIT_VERSION}/dumb-init_${DUMBINIT_VERSION}_amd64.deb
+
 RUN set -x \
     # Runtime dependencies.
  && apt-get update \
  && apt-get install -y \
-        libcurl3 \
+        libcurl4 \
+        lib32z1-dev \
         libgmp10 \
         libjansson4 \
-        libssl1.0.0 \
+        libssl1.1 \
         openssl \
     # Build dependencies.
  && apt-get install -y \
@@ -36,8 +40,7 @@ RUN set -x \
  && make install \
     # Install dumb-init (avoid PID 1 issues).
     # https://github.com/Yelp/dumb-init
- && DUMP_INIT_URI=$(curl -L https://github.com/Yelp/dumb-init/releases/latest | grep -Po '(?<=href=")[^"]+_amd64(?=")') \
- && curl -Lo /usr/local/bin/dumb-init "https://github.com/$DUMP_INIT_URI" \
+ && curl -Lo /usr/local/bin/dumb-init $DUMBINIT_URL \
  && chmod +x /usr/local/bin/dumb-init \
     # Clean-up
  && cd / \
