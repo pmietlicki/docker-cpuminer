@@ -44,12 +44,12 @@ You can test both `:debian` ([Debian](https://hub.docker.com/_/debian)-based)
 and `:alpine` ([Linux Alpine](https://hub.docker.com/_/alpine)-based) versions
 to check that they work on your machine via:
 
-    $ docker run --rm wernight/cpuminer-multi:alpine cpuminer --cputest
-    $ docker run --rm wernight/cpuminer-multi:alpine cpuminer --benchmark
+    $ docker run --rm pmietlicki/cpuminer:alpine cpuminer --cputest
+    $ docker run --rm pmietlicki/cpuminer:alpine cpuminer --benchmark
 
 To see the CLI help do:
 
-    $ docker run --rm wernight/cpuminer-multi cpuminer --help
+    $ docker run --rm pmietlicki/cpuminer cpuminer --help
 
 
 Feedbacks
